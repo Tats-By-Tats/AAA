@@ -24,41 +24,27 @@ void Shape::getDimension(){
 		cout << "The radius is " << radius << endl;
 	}
 }
-class Pyramid:public Shape{
-	public:
-		Pyramid(double b, double h);
-		void Pyramid_Vol();
-};
-Pyramid::Pyramid(double b, double h){
-	base = b;
-	height = h;	
-};
-void Pyramid::Pyramid_Vol(){
-	double vol = 0;
-	vol = (base * height)/3;
-	cout << "The volume of Pyramid is " << vol << endl;
-}
 class Cone:public Shape{
 	public:
 	Cone(double r, double h);
-	void Cone_Vol();
+	void Cone_Are();
 };
 Cone::Cone (double r, double h){
 	radius = r;
 	height = h;
 };
-	void Cone::Cone_Vol(){
-		double Vol = 0;
-		Vol = 3.1415926*(radius*radius*height)/3;
-	cout << "The volume of Cone is " << Vol << endl;
+	void Cone::Cone_Are(){
+                double r_squared = pow(radius,2);
+                double h_squared = pow(height,2);
+                double Pi = 3.1415926;
+		double Are = 0;
+		Are = Pi * r_squared + Pi*radius * sqrt(r_squared + h_squared);
+	cout << "The Area of Cone is " << Are << endl;
 	};
 int main(){
-	//Pyramid smallPyra(2,4);
-	//smallPyra.getDimension();
-	//smallPyra.Pyramid_Vol();
 	Cone bigCone(5,20);
 	bigCone.getDimension();
-	bigCone.Cone_Vol();
+	bigCone.Cone_Are();
 	
 	return 0;
 }
