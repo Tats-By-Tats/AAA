@@ -27,12 +27,18 @@ void Shape::getDimension(){
 class Cone:public Shape{
 	public:
 	Cone(double r, double h);
+        void Cone_Vol();
 	void Cone_Are();
 };
 Cone::Cone (double r, double h){
 	radius = r;
 	height = h;
 };
+        void Cone::Cone_Vol(){
+                double Vol = 0; 
+    Vol = 3.1415926 * (radius * radius * height) / 3;
+    cout << "The volume of the cone is: " << Vol << endl;
+}
 	void Cone::Cone_Are(){
                 double r_squared = pow(radius,2);
                 double h_squared = pow(height,2);
@@ -44,6 +50,7 @@ Cone::Cone (double r, double h){
 int main(){
 	Cone bigCone(5,20);
 	bigCone.getDimension();
+        bigCone.Cone_Vol();
 	bigCone.Cone_Are();
 	
 	return 0;
